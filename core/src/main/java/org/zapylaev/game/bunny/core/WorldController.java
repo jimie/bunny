@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
@@ -103,6 +102,7 @@ public class WorldController extends InputAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.PERIOD)) mCameraMan.addZoom(-camZoomSpeed);
         if (Gdx.input.isKeyPressed(Input.Keys.SLASH)) mCameraMan.setZoom(1);
     }
+
     private void moveCamera(float x, float y) {
         x += mCameraMan.getPosition().x;
         y += mCameraMan.getPosition().y;

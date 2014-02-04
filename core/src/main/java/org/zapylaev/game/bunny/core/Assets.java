@@ -17,7 +17,8 @@ public class Assets implements Disposable, AssetErrorListener {
 
     private static Assets instance;
 
-    private Assets () {}
+    private Assets() {
+    }
 
     public static Assets getInstance() {
         if (instance == null) {
@@ -57,7 +58,7 @@ public class Assets implements Disposable, AssetErrorListener {
 
     @Override
     public void error(AssetDescriptor asset, Throwable throwable) {
-        Gdx.app.error(LOG_TAG, "Couldn't load asset '" + asset.fileName + "'", (Exception)throwable);
+        Gdx.app.error(LOG_TAG, "Couldn't load asset '" + asset.fileName + "'", (Exception) throwable);
     }
 
     @Override
@@ -67,6 +68,7 @@ public class Assets implements Disposable, AssetErrorListener {
 
     public static class AssetBunny {
         public final TextureAtlas.AtlasRegion head;
+
         public AssetBunny(TextureAtlas atlas) {
             head = atlas.findRegion("bunny_head");
         }
@@ -75,6 +77,7 @@ public class Assets implements Disposable, AssetErrorListener {
     public static class AssetRock {
         public final TextureAtlas.AtlasRegion edge;
         public final TextureAtlas.AtlasRegion middle;
+
         public AssetRock(TextureAtlas atlas) {
             edge = atlas.findRegion("rock_edge");
             middle = atlas.findRegion("rock_middle");
@@ -83,6 +86,7 @@ public class Assets implements Disposable, AssetErrorListener {
 
     public static class AssetGoldCoin {
         public final TextureAtlas.AtlasRegion goldCoin;
+
         public AssetGoldCoin(TextureAtlas atlas) {
             goldCoin = atlas.findRegion("item_gold_coin");
         }
@@ -90,6 +94,7 @@ public class Assets implements Disposable, AssetErrorListener {
 
     public static class AssetFeather {
         public final TextureAtlas.AtlasRegion feather;
+
         public AssetFeather(TextureAtlas atlas) {
             feather = atlas.findRegion("item_feather");
         }
@@ -102,6 +107,7 @@ public class Assets implements Disposable, AssetErrorListener {
         public final TextureAtlas.AtlasRegion mountainLeft;
         public final TextureAtlas.AtlasRegion mountainRight;
         public final TextureAtlas.AtlasRegion waterOverlay;
+
         public AssetLevelDecoration(TextureAtlas atlas) {
             cloud01 = atlas.findRegion("cloud01");
             cloud02 = atlas.findRegion("cloud02");

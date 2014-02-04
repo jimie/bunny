@@ -38,9 +38,11 @@ public class CameraMan {
     public void addZoom(float amount) {
         setZoom(mZoom + amount);
     }
+
     public void setZoom(float zoom) {
         mZoom = MathUtils.clamp(zoom, MAX_ZOOM_IN, MAX_ZOOM_OUT);
     }
+
     public float getZoom() {
         return mZoom;
     }
@@ -49,7 +51,7 @@ public class CameraMan {
         mTarget = target;
     }
 
-    public Sprite getTarget () {
+    public Sprite getTarget() {
         return mTarget;
     }
 

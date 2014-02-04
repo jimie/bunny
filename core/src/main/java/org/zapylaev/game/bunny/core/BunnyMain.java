@@ -19,41 +19,41 @@ public class BunnyMain implements ApplicationListener {
     }
 
     @Override
-	public void create () {
+    public void create() {
         Assets.getInstance().init(new AssetManager());
         mWorldController.init();
         mWorldRenderer.init();
-	}
+    }
 
-	@Override
-	public void resize (int width, int height) {
+    @Override
+    public void resize(int width, int height) {
         mWorldRenderer.resize(width, height);
-	}
+    }
 
-	@Override
-	public void render () {
+    @Override
+    public void render() {
         if (!mPaused) {
             mWorldController.update(Gdx.graphics.getDeltaTime());
         }
-        Gdx.gl.glClearColor(0x64/255.0f, 0x95/255.0f, 0xed/255.0f, 0xff / 255.0f);
+        Gdx.gl.glClearColor(0x64 / 255.0f, 0x95 / 255.0f, 0xed / 255.0f, 0xff / 255.0f);
         Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
         mWorldRenderer.render();
     }
 
-	@Override
-	public void pause () {
+    @Override
+    public void pause() {
         mPaused = true;
-	}
+    }
 
-	@Override
-	public void resume () {
+    @Override
+    public void resume() {
         Assets.getInstance().init(new AssetManager());
         mPaused = false;
-	}
+    }
 
-	@Override
-	public void dispose () {
+    @Override
+    public void dispose() {
         mWorldRenderer.dispose();
         Assets.getInstance().dispose();
-	}
+    }
 }
