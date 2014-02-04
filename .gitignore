@@ -1,0 +1,17 @@
+target/
+.idea/
+.settings/
+*.iml
+*.classpath
+*.project
+/*.properties
+lint.xml
+classes/
+/gen
+/bin
+.directory
+.externalToolBuilders
+
+android/gen
+android/bin
+android/libs
