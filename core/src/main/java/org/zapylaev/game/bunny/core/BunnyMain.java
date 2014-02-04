@@ -19,6 +19,8 @@ public class BunnyMain implements ApplicationListener {
 
     @Override
 	public void create () {
+        mWorldController.init();
+        mWorldRenderer.init();
 	}
 
 	@Override
