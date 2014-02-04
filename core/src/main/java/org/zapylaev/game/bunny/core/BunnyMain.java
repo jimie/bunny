@@ -2,6 +2,7 @@ package org.zapylaev.game.bunny.core;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL10;
 
 public class BunnyMain implements ApplicationListener {
@@ -19,6 +20,7 @@ public class BunnyMain implements ApplicationListener {
 
     @Override
 	public void create () {
+        Assets.getInstance().init(new AssetManager());
         mWorldController.init();
         mWorldRenderer.init();
 	}
@@ -45,11 +47,13 @@ public class BunnyMain implements ApplicationListener {
 
 	@Override
 	public void resume () {
+        Assets.getInstance().init(new AssetManager());
         mPaused = false;
 	}
 
 	@Override
 	public void dispose () {
         mWorldRenderer.dispose();
+        Assets.getInstance().dispose();
 	}
 }

@@ -11,7 +11,7 @@ public class BunnyMainHtml extends GwtApplication {
 	public ApplicationListener getApplicationListener () {
 		return new BunnyMain();
 	}
-	
+
 	@Override
 	public GwtApplicationConfiguration getConfig () {
 		return new GwtApplicationConfiguration(480, 320);
