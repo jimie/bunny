@@ -23,6 +23,7 @@ public class Rock extends AGameObject {
 
     public void setLength(int length) {
         mLength = length;
+        bounds.set(0, 0, mDimension.x * length, mDimension.y);
     }
 
     public void increaseLength(int amount) {
