@@ -1,9 +1,9 @@
 package org.zapylaev.game.bunny.core.util;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import org.zapylaev.game.bunny.core.gameobject.AGameObject;
 
 public class CameraMan {
     public static final String LOG_TAG = CameraMan.class.getSimpleName();
@@ -13,7 +13,7 @@ public class CameraMan {
 
     private Vector2 mPosition;
     private float mZoom;
-    private Sprite mTarget;
+    private AGameObject mTarget;
 
     public CameraMan() {
         mPosition = new Vector2();
@@ -23,8 +23,8 @@ public class CameraMan {
     public void update(float delta) {
         if (!hasTarget()) return;
 
-        mPosition.x = mTarget.getX() + mTarget.getOriginX();
-        mPosition.y = mTarget.getY() + mTarget.getOriginY();
+        mPosition.x = mTarget.mPosition.x + mTarget.mOrigin.x;
+        mPosition.y = mTarget.mPosition.y + mTarget.mOrigin.y;
     }
 
     public void setPosition(float x, float y) {
@@ -47,11 +47,11 @@ public class CameraMan {
         return mZoom;
     }
 
-    public void setTarget(Sprite target) {
+    public void setTarget(AGameObject target) {
         mTarget = target;
     }
 
-    public Sprite getTarget() {
+    public AGameObject getTarget() {
         return mTarget;
     }
 
@@ -59,7 +59,7 @@ public class CameraMan {
         return mTarget != null;
     }
 
-    public boolean hasTarget(Sprite target) {
+    public boolean hasTarget(AGameObject target) {
         return hasTarget() && mTarget.equals(target);
     }
 

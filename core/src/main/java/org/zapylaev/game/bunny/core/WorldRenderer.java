@@ -4,6 +4,9 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Disposable;
+import org.zapylaev.game.bunny.core.gameobject.AGameObject;
+import org.zapylaev.game.bunny.core.gameobject.Mountains;
+import org.zapylaev.game.bunny.core.gameobject.Rock;
 import org.zapylaev.game.bunny.core.util.Constants;
 
 public class WorldRenderer implements Disposable {
@@ -23,20 +26,13 @@ public class WorldRenderer implements Disposable {
         mCamera = new OrthographicCamera(Constants.VIEWPORT_WIDTH, Constants.VIEWPORT_HEIGHT);
         mCamera.position.set(0, 0, 0);
         mCamera.update();
-
     }
 
     public void render() {
-        renderTestObjects();
-    }
-
-    private void renderTestObjects() {
         mWorldController.mCameraMan.giveCamera(mCamera);
         mBatch.setProjectionMatrix(mCamera.combined);
         mBatch.begin();
-        for (Sprite sprite : mWorldController.mTestSprites) {
-            sprite.draw(mBatch);
-        }
+        mWorldController.mLevel.render(mBatch);
         mBatch.end();
     }
 
