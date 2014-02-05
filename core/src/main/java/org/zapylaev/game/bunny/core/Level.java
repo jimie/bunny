@@ -70,26 +70,18 @@ public class Level {
                         obj = new Rock();
                         float heightIncreaseFactor = 0.25f;
                         offsetHeight = -2.5f;
-                        obj.mPosition.set(pixelX,
-                                baseHeight * obj.mDimension.y
-                                        * heightIncreaseFactor
-                                        + offsetHeight);
+                        obj.mPosition.set(pixelX, baseHeight * obj.mDimension.y * heightIncreaseFactor + offsetHeight);
                         rocks.add((Rock) obj);
                     } else {
                         rocks.get(rocks.size - 1).increaseLength(1);
                     }
-                }
-                // player spawn point
-                else if (BlockType.PLAYER_SPAWNPOINT.isSameColor(currentPixel)) {
-                }
-                // feather
-                else if (BlockType.ITEM_FEATHER.isSameColor(currentPixel)) {
-                }
-                // gold coin
-                else if (BlockType.ITEM_GOLD_COIN.isSameColor(currentPixel)) {
-                }
-                // unknown object/pixel color
-                else {
+                } else if (BlockType.PLAYER_SPAWNPOINT.isSameColor(currentPixel)) {
+
+                } else if (BlockType.ITEM_FEATHER.isSameColor(currentPixel)) {
+
+                } else if (BlockType.ITEM_GOLD_COIN.isSameColor(currentPixel)) {
+
+                } else { // unknown object/pixel color
                     int r = 0xff & (currentPixel >>> 24); //red color channel
                     int g = 0xff & (currentPixel >>> 16); //green color channel
                     int b = 0xff & (currentPixel >>> 8); //blue color channel
